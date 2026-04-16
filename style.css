@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #0b1220;
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* CARD ROOT */
+.card {
+  width: 100%;
+  max-width: 620px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* ROW (checkbox section) */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* TITLE */
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+/* DESCRIPTION (main visible) */
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+/* META SECTION */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* BADGES */
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+/* PRIORITY BADGE */
+.priority {
+  background: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+}
+
+/* STATUS BADGE */
+.status {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+
+.status.pending {
+  color: #60a5fa;
+}
+
+.status.in-progress {
+  color: #a78bfa;
+}
+
+.status.done {
+  color: #34d399;
+  text-decoration: line-through;
+}
+
+/* STATUS CONTROL SELECT */
+select#statusControl {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* PRIORITY INDICATOR (colored bar/dot) */
+.priority-indicator {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  margin: 8px 0;
+  transition: background 0.2s;
+}
+
+.priority-indicator.low {
+  background: #22c55e;
+}
+
+.priority-indicator.medium {
+  background: #f59e0b;
+}
+
+.priority-indicator.high {
+  background: #ef4444;
+}
+
+/* TIME ROW */
+.time-row {
+  margin: 8px 0;
+}
+
+.due-date, .time-remaining {
+  display: block;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.time-remaining {
+  font-weight: 500;
+  background: #1f2937;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+/* OVERDUE INDICATOR */
+.overdue-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #ef4444;
+  font-weight: 600;
+  background: rgba(239, 68, 68, 0.15);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* HIDDEN UTILITY */
+.hidden {
+  display: none;
+}
+
+/* EXPAND/COLLAPSE BUTTON */
+.expand-btn {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 8px 0;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.expand-btn:hover {
+  background: #374151;
+}
+
+.expand-btn:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* COLLAPSIBLE SECTION */
+.collapsible {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin: 8px 0;
+}
+
+.collapsible.collapsed {
+  display: none;
+}
+
+.collapsible.expanded {
+  display: block;
+}
+
+/* FULL DESCRIPTION TEXT INSIDE COLLAPSIBLE */
+#fullDescriptionText {
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin-top: 16px;
+}
+
+.tags li {
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #e5e7eb;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #1f2937;
+}
+
+button:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* EDIT FORM */
+.edit-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid #1f2937;
+  padding-top: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+/* DONE STATE STYLES (strikethrough title) */
+.title.done-strike {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}
